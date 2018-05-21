@@ -1,8 +1,18 @@
+<div mat-app-background>
 <mat-toolbar>
   <span>To-Do Liste</span>
 </mat-toolbar>
 
 <mat-tab-group>
-  <mat-tab label="Ich">Meine To-Do</mat-tab>
+  <mat-tab label="Ich">
+    <mat-list>
+      <mat-list-item> Pepper </mat-list-item>
+      <mat-list-item> Salt </mat-list-item>
+      <mat-list-item> Paprika </mat-list-item>
+     </mat-list>
+  </mat-tab>
   <mat-tab label="Gruppe">Gruppe To-Do</mat-tab>
 </mat-tab-group>
+
+<button mat-fab>+</button>
+</div>
