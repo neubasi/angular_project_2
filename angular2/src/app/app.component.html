@@ -1,18 +1,20 @@
-<div mat-app-background>
+
 <mat-toolbar>
+    <button mat-fab style="margin-right:10px">+</button>
   <span>To-Do Liste</span>
+  
 </mat-toolbar>
 
 <mat-tab-group>
   <mat-tab label="Ich">
-    <mat-list>
-      <mat-list-item> Pepper </mat-list-item>
-      <mat-list-item> Salt </mat-list-item>
-      <mat-list-item> Paprika </mat-list-item>
-     </mat-list>
+    <mat-selection-list>
+      <mat-list-option > 1. Papierkramk erledigen </mat-list-option ><mat-divider></mat-divider>
+      <mat-list-option > 2. Müll rausbringen </mat-list-option ><mat-divider></mat-divider>
+      <mat-list-option > 3. Noch mehr Papierkram </mat-list-option ><mat-divider></mat-divider>
+     </mat-selection-list>
   </mat-tab>
   <mat-tab label="Gruppe">Gruppe To-Do</mat-tab>
 </mat-tab-group>
+<br>
+<button mat-raised-button color="primary">Löschen</button>
 
-<button mat-fab>+</button>
-</div>
