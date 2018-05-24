@@ -7,4 +7,24 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+  todo = [];
+  newtodo ="";
+  index="";
+  openToDoList = false;
+
+  addToDo = function(){
+    if(this.newtodo !="")
+    this.todo.push(this.newtodo)
+    this.openToDoList = false;
+  }
+
+  removeToDo = function(index){
+    this.todo.splice(index,1)
+    console.log(index);
+  }
+
+  openToDo = function(){
+    this.openToDoList = true;
+  }
+
 }
