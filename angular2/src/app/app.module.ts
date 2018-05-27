@@ -9,7 +9,6 @@ import { DashboardComponent } from './component/dashboard/dashboard.component';
 
 // Firebase
 import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 
 // Routing
@@ -17,6 +16,9 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { environment } from '../environments/environment';
+
+// Auth Service
+import { AuthService } from './service/auth/auth.service';
 
 const appRoutes: Routes = [
 
@@ -44,10 +46,9 @@ const appRoutes: Routes = [
     FormsModule,
     RouterModule.forRoot(appRoutes),
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireDatabaseModule,
     AngularFireAuthModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

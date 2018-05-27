@@ -1,20 +1,33 @@
 import { Component } from '@angular/core';
+import { AuthService } from '../../service/auth/auth.service';
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
 
 export class LoginComponent {
   
-     username ="";
-     password ="";
+     email : string;
+     password : string;
 
-    login = function(){
-        console.log("Login Funktion ausführen...")
-        console.log(this.username);
-        console.log(this.password);
-    }
+     constructor(public authService: AuthService) {}
+
+     signup() {
+       this.authService.signup(this.email, this.password);
+       this.email = this.password = '';
+     }
+   
+     login() {
+       this.authService.login(this.email, this.password);
+       //this.email = this.password = '';    
+     }
+   
+     logout() {
+       this.authService.logout();
+     }
+
+    
 
 }
