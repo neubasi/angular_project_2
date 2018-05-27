@@ -1,26 +1,10 @@
 
-<mat-toolbar>
-    <button (click)="openToDo()" mat-fab style="margin-right:10px">+</button>
-  <span>To-Do Liste</span>
-  
-</mat-toolbar>
+<nav>
+  <a routerLink="" routerLinkActive="active" style = "color:white">Home</a>
+  <a routerLink="/login" routerLinkActive="active" style = "color:white">Login</a>
+  <a routerLink="/dashboard" routerLinkActive="active" style = "color:white">Dashboard</a>
+</nav>
 
-
-
-    <br>
-    <div *ngIf="openToDoList == true">
-      <mat-form-field>
-          <textarea style = "min-width: 200px;min-height: 150px" matInput [(ngModel)] = "newtodo" matInput placeholder="ToDo"></textarea>
-      </mat-form-field>
-      <button mat-raised-button color="primary" (click)="addToDo()">Add</button>
-    </div>
-
-   <mat-list>
-      <mat-list-item *ngFor = "let t of todo; let i = index">
-         {{ i+1 }}. {{ t }}
-         <button (click) = "removeToDo(i)">X</button>
-      </mat-list-item>
-    </mat-list>
-<br>
+<router-outlet></router-outlet>
 
 

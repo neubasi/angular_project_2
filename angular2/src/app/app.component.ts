@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database-deprecated';
+import {Observable} from 'rxjs/Observable';
 
 @Component({
   selector: 'app-root',
@@ -7,24 +10,17 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
-  todo = [];
-  newtodo ="";
-  index="";
-  openToDoList = false;
-
-  addToDo = function(){
-    if(this.newtodo !="")
-    this.todo.push(this.newtodo)
-    this.openToDoList = false;
+  todo;
+ 
+  coursesObservable: Observable<any[]>;
+  constructor(private db: AngularFireDatabase) { }
+  ngOnInit() {
+    this.coursesObservable = this.getCourses('/todo');
+  }
+  getCourses(listPath): Observable<any[]> {
+    return this.db.list(listPath).valueChanges();
+  }
+  
   }
 
-  removeToDo = function(index){
-    this.todo.splice(index,1)
-    console.log(index);
-  }
 
-  openToDo = function(){
-    this.openToDoList = true;
-  }
-
-}
